@@ -80,3 +80,20 @@ foreach (var row in pixelsQuery)
   foreach (var pixel in row)
     setPixel(pixel.X, pixel.Y, pixel.Color.ToDrawingColor());
 ```
+## Y Combinator
+
+One interesting feature of this implementation is the need to use a [Y combinator](http://en.wikipedia.org/wiki/Fixed-point_combinator#Y_combinator) to implement the recursion int the ray tracing algorithm.  Here's the [Y combinator implementation](https://github.com/lukehoban/LINQ-raytracer/blob/master/LINQRayTracer.cs#L31) used in this sample:
+
+```csharp
+public static Func<T, U> Y<T, U>(Func<Func<T, U>, Func<T, U>> f)
+{
+    Func<Wrap<Func<T, U>>, Func<T, U>> g = wx => f(wx.It(wx));
+    return g(new Wrap<Func<T, U>>(wx => f(y => wx.It(wx)(y))));
+}
+
+private class Wrap<T>
+{
+    public readonly Func<Wrap<T>, T> It;
+    public Wrap(Func<Wrap<T>, T> it) { It = it; }
+}
+```

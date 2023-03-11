@@ -1,7 +1,7 @@
 LINQ Raytracer
 ==============
 
-A LINQified raytracer implementation in C#.  This sample is from a 2007 [blog post](http://blogs.msdn.com/b/lukeh/archive/2007/10/01/taking-linq-to-objects-to-extremes-a-fully-linqified-raytracer.aspx) which has additional details.
+A LINQified raytracer implementation in C#.  This sample is from a 2007 [blog post](https://learn.microsoft.com/en-us/archive/blogs/lukeh/taking-linq-to-objects-to-extremes-a-fully-linqified-raytracer) which has additional details.
 
 ## Running
 
